@@ -18,3 +18,6 @@ chroma/
 
 # macOS
 .DS_Store
+
+# RTF source files (raw exports, not needed in repo)
+*.rtf
