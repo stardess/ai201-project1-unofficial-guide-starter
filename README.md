@@ -126,15 +126,3 @@ I gave GitHub Copilot (Claude Sonnet 4.6 via VS Code Copilot Chat) the full Chun
 
 **Instance 2 — Generating `retriever.py` from the Retrieval Approach spec section:**
 I gave GitHub Copilot the Retrieval Approach section from `planning.md` (model name, vector DB choice, top-k, distance metric, evaluation queries). It produced working `embed_and_store()` and `retrieve()` functions. I directed two additions not in the spec: (1) an idempotent `get_or_build_collection()` wrapper that checks chunk count before re-embedding — important because re-embedding on every import would add 10–20s startup time to `app.py`; (2) using the IDs format `"{source}_chunk_{i}"` for ChromaDB upserts (rather than random UUIDs), making it possible to debug which source a chunk came from directly from the stored ID. Both additions came from me identifying production reliability concerns that the spec didn't surface.
-
-**Instance 1**
-
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
-
-**Instance 2**
-
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
