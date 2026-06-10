@@ -9,7 +9,7 @@
 
 ## Domain
 
-<!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
+Rate My Professors reviews for Notre Dame CSE (Computer Science & Engineering) department professors. This knowledge is valuable because official course descriptions and university websites say nothing about actual teaching style, workload, exam difficulty, grading fairness, or how accessible a professor is outside class — yet those factors have a huge impact on a student's semester. Students rely on word-of-mouth or hours of scrolling RMP; this system makes that distributed knowledge instantly searchable and answerable.
 
 ---
 
@@ -20,16 +20,16 @@
 
 | # | Source | Description | URL or location |
 |---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | RMP – Daniel Cedre | 14 reviews across CSE10001 (Intro to CS) and CSE20110 (Discrete Math). Overall 2.4/5. | https://www.ratemyprofessors.com/professor/2935650 |
+| 2 | RMP – Shreya Kumar | 10 reviews across CSE10001, EG10118, CSE30332, CSE40793, EG10112. Overall 3.2/5. | https://www.ratemyprofessors.com/professor/2551877 |
+| 3 | RMP – Daniel Rehberg | 1 review for CSE20232 (Data Structures). Overall 1/5. | https://www.ratemyprofessors.com/professor/3152860 |
+| 4 | RMP – Douglas Thain | 4 reviews across CSE30341 (OS) and CSE40771 (Distributed Systems). Overall 4/5. | https://www.ratemyprofessors.com/professor/2441081 |
+| 5 | RMP – Katherine Walden | 5 reviews for CDT30010 (Computing & Digital Technologies). Overall 5/5. | https://www.ratemyprofessors.com/professor/2748451 |
+| 6 | RMP – Ramzi Bualuan | 7 reviews for CSE20311 (Fundamentals of Computing). Overall 5/5. | https://www.ratemyprofessors.com/professor/2647156 |
+| 7 | RMP – Peter Bui | 15 reviews across CSE20289 (Systems Programming) and CSE30341 (OS). Overall 4.5/5. | https://www.ratemyprofessors.com/professor/2539366 |
+| 8 | RMP – Tijana Milenkovic | 6 reviews across CSE20110 (Discrete Math) and CSE20111 (Algorithms). Overall 2.3/5. | https://www.ratemyprofessors.com/professor/2054522 |
+| 9 | RMP – Matthew Morrison | 12 reviews across CSE20312, CSE20133, CSE30321, CSE40462. Overall 3.1/5. | https://www.ratemyprofessors.com/professor/2484735 |
+| 10 | RMP – Fred Nwanganga | 15 reviews for ITAO20210 (Intro to Python, Mendoza). Overall 4.4/5. | https://www.ratemyprofessors.com/professor/2675949 |
 
 ---
 
