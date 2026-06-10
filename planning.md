@@ -44,6 +44,8 @@ Rate My Professors reviews for Notre Dame CSE (Computer Science & Engineering) d
 
 **Overlap:** 50 characters
 
+**Final chunk count:** 131 chunks across 10 documents (89 source reviews). Some reviews are short enough to fit in one chunk; longer reviews produce 2 chunks via the overlap splitter.
+
 **Reasoning:** Each RMP review is a self-contained opinion block roughly 100–500 characters long (2–6 sentences plus metadata fields like course, grade, and attendance). A 500-character chunk is large enough to hold one full review in most cases, so a chunk typically captures a single student's complete take on a professor — including the context (which course, what grade) and the opinion together. Going smaller (e.g., 150 characters) would split a review's context fields from the opinion text, making the chunk uninterpretable on its own. Going larger (e.g., 1,000 characters) would merge two reviews into one chunk, muddying attribution and making it harder to surface professor-specific signals. A 50-character overlap ensures that if a review straddles a boundary, the key sentiment at the edge of one chunk also appears at the start of the next, so neither chunk loses the conclusion of the thought.
 
 ---
