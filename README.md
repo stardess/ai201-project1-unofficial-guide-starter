@@ -62,6 +62,50 @@ Rate My Professors (RMP) reviews for Notre Dame CSE (Computer Science & Engineer
 
 ---
 
+## Retrieval Test Results
+
+**Query 1:** "What is Katherine Walden's grading system in CDT30010?"
+
+| Rank | Distance | Source | Chunk preview |
+|------|----------|--------|---------------|
+| 1 | 0.4142 | prof_Walden_rmp.txt | `[Professor: Katherine Walden | Course: CDT30010] Course: CDT30010 Date: Apr 15th, 2026 ... Not bad, kid.` |
+| 2 | 0.4401 | prof_Walden_rmp.txt | `[Professor: Katherine Walden | Course: CDT30010] Course: CDT30010 Date: Dec 2nd, 2025 ... Cannot say enough good things` |
+| 3 | 0.4525 | prof_Walden_rmp.txt | `[Professor: Katherine Walden | Course: CDT30010] Course: CDT30010 Date: Apr 13th, 2026 ... Very chill class, you pick your grade` |
+| 4 | 0.4923 | prof_Walden_rmp.txt | `[Professor: Katherine Walden | Course: CDT30010] ... Her class was very casual ... Each assignment was pass/fail` |
+| 5 | 0.5508 | prof_Walden_rmp.txt | `[Professor: Katherine Walden | Course: CDT30010] ... determines your grade. Sometimes she brings her dog to class too. Tags: ACCESSIBLE OUTSIDE CLASS, GRADED BY FEW THINGS, CARING` |
+
+**Why these chunks are relevant:** All 5 results are from `prof_Walden_rmp.txt` and directly concern CDT30010. The query phrase "grading system" maps semantically to the contract-grading language embedded in those chunks ("pass/fail assignments," "you pick your grade," "number of fails determines your grade"). The low distances (0.41–0.55) reflect high similarity; all chunks contain both the professor name and course code as inline context, which the embedding model captures.
+
+---
+
+**Query 2:** "How hard are Peter Bui's exams in CSE20289?"
+
+| Rank | Distance | Source | Chunk preview |
+|------|----------|--------|---------------|
+| 1 | 0.3061 | prof_Bui_rmp.txt | `[Professor: Peter Bui | Course: CSE30341] ... Bui makes being a tech nerd cool` |
+| 2 | 0.3070 | prof_Bui_rmp.txt | `[Professor: Peter Bui | Course: CSE20289] ... Very good in lecture, very difficult tests` |
+| 3 | 0.3246 | prof_Bui_rmp.txt | `[Professor: Peter Bui | Course: CSE20289] ... He gives incredible lectures, but the exams are impossible` |
+| 4 | 0.3398 | prof_Bui_rmp.txt | `[Professor: Peter Bui | Course: CSE20289] ... Systems is the hardest class Bui teaches` |
+| 5 | 0.3578 | prof_Bui_rmp.txt | `[Professor: Peter Bui | Course: CSE20289] ... Tags: TOUGH GRADER, AMAZING LECTURES, TEST HEAVY` |
+
+**Why these chunks are relevant:** Ranks 2–5 are directly about Bui's CSE20289 exams. Rank 1 is a CSE30341 (OS) review for Bui — still the correct professor, and it appears first because Bui's general teaching reputation for exam difficulty carries across both courses. The very low distances (0.31–0.36) indicate strong semantic match; "hard," "exams," and "CSE20289" all appear in the indexed chunk text via the inline professor/course prefix.
+
+---
+
+**Query 3:** "Is Fred Nwanganga good for beginners in ITAO20210?"
+
+| Rank | Distance | Source | Chunk preview |
+|------|----------|--------|---------------|
+| 1 | 0.4973 | prof_Nwanganga_rmp.txt | `[Professor: Fred Nwanganga | Course: ITAO20210] ... Professor Nwanganga has truly changed the way I think about data` |
+| 2 | 0.5213 | prof_Nwanganga_rmp.txt | `[Professor: Fred Nwanganga | Course: ITAO20210] ... He goes step by step and makes everything approachable` |
+| 3 | 0.5262 | prof_Nwanganga_rmp.txt | `[Professor: Fred Nwanganga | Course: ITAO20210] ... Professor Fred is extremely patient` |
+| 4 | 0.5382 | prof_Nwanganga_rmp.txt | `[Professor: Fred Nwanganga | Course: ITAO20210] ... Fred was very knowledgeable and engaging` |
+| 5 | 0.5409 | prof_Nwanganga_rmp.txt | `[Professor: Fred Nwanganga | Course: ITAO20210] ... He was an incredible professor` |
+
+All 5 results are from `prof_Nwanganga_rmp.txt` with consistent ITAO20210 attribution.
+
+---
+
 ## Grounded Generation
 
 **System prompt grounding instruction:** The system prompt passed to `llama-3.3-70b-versatile` contains the following hard rules:
@@ -81,6 +125,26 @@ The temperature is set to `0.2` to minimize hallucination and keep the model clo
 > Query: *"What is the best restaurant near Notre Dame campus?"*
 > Answer: *"I don't have enough information in the available reviews to answer that."*
 > Source: (retrieval pulled unrelated chunks, but the LLM correctly refused to answer from them)
+
+---
+
+## Query Interface
+
+**Input field:** A plain-text question box labeled "Ask a question about an ND professor". Accepts free-form natural language questions. Submits on button click or Enter key.
+
+**Output fields:**
+- **Answer** — multi-line text area displaying the LLM-generated response grounded in retrieved student reviews.
+- **Retrieved from** — text area listing the deduplicated source filenames (e.g., `prof_Walden_rmp.txt`) for every chunk that was passed to the model. Populated programmatically from chunk metadata, never from LLM output.
+
+**Sample interaction transcript:**
+
+> **User query:** "What do students say about Peter Bui's exams in Systems Programming?"
+>
+> **Answer:**
+> According to the reviews, Peter Bui's exams in Systems Programming CSE20289 are described as "pretty difficult" (Review 1), "impossible" (Review 2), and "very difficult tests" (Review 4), and "very hard" (Review 5).
+>
+> **Retrieved from:**
+> • Prof. Peter Bui  (prof_Bui_rmp.txt)
 
 ---
 
